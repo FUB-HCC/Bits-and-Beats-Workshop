@@ -3,7 +3,7 @@
 ## Setup
 Bevor wir richtig anfangen, lasst uns prüfen, ob unser Raspberry Pi funktioniert, und eine Umgebung für unser späteres Projekt aufsetzen. Um dies zu tun, befolge einefach folgende Schritte:
   1. Schalte den Raspberry Pi ein, indem du ihn mit Strom versorgst
-  2. erstelle einen Ordner "Theremin" auf dem Desktop
+  2. Erstelle einen Ordner "Theremin" auf dem Desktop
   3. Erstelle eine Datei `theremin.py`, indem du in dem Ordner einen Rechtsklick machst und "Neue Datei" auswählst
 
 ## Let's make some noise!
@@ -89,13 +89,13 @@ Der Abstand kann anhand der folgenden Formel berechnet werden:
 wobei L der Abstand, T die Zeit zwischen Senden und Empfangen und C die Schallgeschwindigkeit ist (Der Wert wird mit 1/2 multipliziert, weil T die Zeit für den Hinund den Rückweg der Welle ist).
 
 Bevor wir das neue Bauteil benutzen können, müssen wir es jedoch an eine steuerbare Stromquelle anschließen.
-`Schaltet den Raspi bitte erstmal aus, bevor ihr die Schaltung nachbaut!`
+`Schaltet den Raspi bitte erstmal aus, bevor ihr die Schaltung nachbaut! Und ruft einen der Workshopleiter hinzu, bevor ihr das System anschaltet!`
 Nun könnt ihr die Schaltung wie angegeben nachbauen.
 
 ![Buzzer](https://raw.githubusercontent.com/wittenator/girlsday19/master/pics/theremin.png)
 
 Jetzt erweitern wir unseren zuvor erstellten Code:
-Wie zuvor schon müssen wir dem Raspi erstmal sagen wie wir die Pins benutzen wollen:
+Wie zuvor schon müssen wir dem Raspi erstmal sagen wie wir die Pins benutzen wollen. Hierbei ist ein Pin zum Ansteuern des Moduls gedacht (PIN_TRIGGER) und ein Pin um das Ergebnis zurückzubekommen.
 ```
 PIN_TRIGGER = 7
 PIN_ECHO = 11
@@ -104,6 +104,76 @@ GPIO.setup(PIN_TRIGGER, GPIO.OUT)
 GPIO.setup(PIN_ECHO, GPIO.IN)
 ```
 
+Nun schreiben wir wieder eine Funktion, die uns diesmal den Abstand zu einem Hindernis zurückgibt!
+```
+def distance():
+    time.sleep(0.01)
+    GPIO.output(PIN_TRIGGER, GPIO.HIGH)
+    time.sleep(0.00001)
+    GPIO.output(PIN_TRIGGER, GPIO.LOW)
+    
+    while GPIO.input(PIN_ECHO)==0:
+        pulse_start_time = time.time()
+    while GPIO.input(PIN_ECHO)==1:
+        pulse_end_time = time.time()
+    
+    pulse_duration = pulse_end_time - pulse_start_time
+    distance = round(pulse_duration * 17150, 2)
+    print("Distance:",distance,"cm")
+    return distance
+```
+Diese Funktion sieht erstmal sehr kompliziert aus, aber wenn man sie zerteilt, ist sie eigentlich ganz einfach.
+  1. Zuerst muss dem Sensor mitgeteilt werden, dass er eine Messung starten soll. Hierzu setzen wir den Triggerpin für 10 Millisekunden unter Strom. 
+  2. Jetzt warten wir auf den Beginn der Messung, indem wir gucken, wann auf dem Echopin eine Antwort ankommt. Diese Zeit speichern wir.
+  3. Jetzt warten wir bis das Signal zuende ist und speichern wieder die Zeit.
+  4. Die Differenz beider Zeiten ist also die Länge des Signals und praktischerweise ist die Länge dieses Signals genau proportional zur Entfernung zum nächsten Objekt.
+  5. Das können wir jetzt mit unserer zuvor entwickelten Formel umrechnen - et voilá, wir haben die Entfernung zum nächsten Objekt erhalten.
 
+Wemn ihr die Funktion jetzt in einer Schleife ausführt, könnt ihr sehen wie der Sensor wiederholt Messungen macht und diese im Terminal ausgibt.
+```
+while true:
+    distance()
+```
 
+Der vollständige Code ist jetzt also:
+```
+import RPio.GPIO as GPIO
+import time
+
+GPIO.setmode(GPIO.BOARD)
+PIN_BUZZ = 13
+PIN_TRIGGER = 7
+PIN_ECHO = 11
+
+GPIO.setup(PIN_TRIGGER, GPIO.OUT)
+GPIO.setup(PIN_ECHO, GPIO.IN)
+GPIO.setup(PIN_BUZZ, GPIO.OUT)
+
+def peep(sec, wait):
+    GPIO.output(PIN_BUZZ, GPIO.HIGH)
+    time.sleep(sec)
+    GPIO.output(PIN_BUZZ, GPIO.LOW)
+    time.sleep(wait)
+    
+def distance():
+    time.sleep(0.01)
+    GPIO.output(PIN_TRIGGER, GPIO.HIGH)
+    time.sleep(0.00001)
+    GPIO.output(PIN_TRIGGER, GPIO.LOW)
+    
+    while GPIO.input(PIN_ECHO)==0:
+        pulse_start_time = time.time()
+    while GPIO.input(PIN_ECHO)==1:
+        pulse_end_time = time.time()
+    
+    pulse_duration = pulse_end_time - pulse_start_time
+    distance = round(pulse_duration * 17150, 2)
+    print("Distance:",distance,"cm")
+    return distance
+
+while true:
+    distance()
+```
+
+Von nun an habt ihr die Möglichkeit diese beiden Komponenten beliebig zu kombinieren und zu Beispiel den Output der `distance` Funktion als Input für die `peep` Funktion zu nutzen und dadurch den Pieper zu steuern oder den Buzzer einen komplexeren Beat spielen zu lassen. Werdet kreativ^^
 
