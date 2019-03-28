@@ -34,7 +34,7 @@ Macht einen Doppelklick auf die zuvor erstellte Datei namens `theremin.py` und e
 
 Zuerst importieren wir die Funktionen, die wir benötigen werden.
 ```
-import RPio.GPIO as GPIO
+import RPi.GPIO as GPIO
 import time
 ```
 Jetzt sagen wir dem Microcontroller wie er seine Pins verwenden soll. Dazu sagen wir, dass Pin 13 (dort wohin das rote Kabel vom Buzzer führt) ein Ausgang ist und dort Strom hingegeben werden kann.
@@ -137,7 +137,7 @@ while true:
 
 Der vollständige Code ist jetzt also:
 ```
-import RPio.GPIO as GPIO
+import RPi.GPIO as GPIO
 import time
 
 GPIO.setmode(GPIO.BOARD)
@@ -171,7 +171,7 @@ def distance():
     print("Distance:",distance,"cm")
     return distance
 
-while true:
+while True:
     distance()
 ```
 
