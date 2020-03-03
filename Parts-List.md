@@ -13,7 +13,7 @@ Ein einfacher [Theremin](https://en.wikipedia.org/wiki/Theremin) programmiert mi
 | Menge | Name            | Beschreibung                       | Beschriftung/Farbcode |
 |-------|-----------------|------------------------------------|-----------------------|
 | 5     | Raspberry Pi 3             | kleine single-board Computer	mit Stromanschluss	               |                       |
-| 5     | kleine Lautsprecher  |  |    KEPO                   |
+| 5     | kleiner Lautsprecher  |  |    KEPO                   |
 | 5     | Steckplatine  |   zum Verbinden von Schaltkreisen                                 |                       |
 | 5     | Ultraschallsensor             |  zum Untraschlalwellen senden und messen          |                       |
 | 60     | Jumperkabel            |   zum verbinden der electrischen Komponenten, 5 mal out-out, 55 mal in-out                               |                       |
