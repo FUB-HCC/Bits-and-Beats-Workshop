@@ -17,6 +17,9 @@ Ein einfacher [Theremin](https://en.wikipedia.org/wiki/Theremin) programmiert mi
 | 5    | Tastatur |  |     |
 | 5    | Maus |  |     |
 
+### Steckplatine
 <img src="pics/steckplatine.jpg" width=300px alt="Steckplatine">
+### Piezo Element
 <img src="pics/piezo.jpg" width=300px alt="Piezo Element">
+### Ultraschallsensor
 <img src="pics/ultraschallsensor.jpg" width=300px alt="Ultraschallsensor">
