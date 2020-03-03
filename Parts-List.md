@@ -2,6 +2,12 @@ Ein einfacher [Theremin](https://en.wikipedia.org/wiki/Theremin) programmiert mi
 - Status: One Raspbarry Pi is missing, ask Leon
 - Difficulty: **2/5**
 
+### Bestellliste
+
+| Menge | Name            | Beschreibung                       | Beschriftung/Farbcode |
+|-------|-----------------|------------------------------------|-----------------------|
+|||||
+
 ### Parts List für 10 Teilnehmemer*innen
 
 | Menge | Name            | Beschreibung                       | Beschriftung/Farbcode |
