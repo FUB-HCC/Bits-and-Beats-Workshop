@@ -11,7 +11,7 @@ Bevor wir richtig anfangen, lasst uns prüfen, ob unser Raspberry Pi funktionier
 
 Nachdem wir uns diesen dezenten Aufruf zu Herzen genommen haben, wenden wir uns zuerst einer Möglichkeit zu mit dem Mikrocontroller einen Ton zu erzeugen. Hierfür werden wir einen handelsüblichen Piezobuzzer mit einem Piezoelement verwenden, so wie er auch in beinahe allen PCs verbaut ist.
 Wikipedia sagt folgendes:
-> Ein Piezoelement ist ein Bauteil, das den Piezoeffekt ausnutzt, um entweder durch Anlegen einer elektrischen Spannung eine mechanische Bewegung auszuführen (Piezoaktor, verwendet den sogenannten inversen Piezoeffekt), oder bei Einwirkung einer mechanischen Kraft eine elektrische Spannung zu produzieren. 
+> Ein [Piezoelement](https://de.wikipedia.org/wiki/Piezoelement) ist ein Bauteil, das den Piezoeffekt ausnutzt, um entweder durch Anlegen einer elektrischen Spannung eine mechanische Bewegung auszuführen (Piezoaktor, verwendet den sogenannten inversen Piezoeffekt), oder bei Einwirkung einer mechanischen Kraft eine elektrische Spannung zu produzieren. 
 
 ![Piezo Animation](https://upload.wikimedia.org/wikipedia/commons/c/c4/SchemaPiezo.gif)
 
