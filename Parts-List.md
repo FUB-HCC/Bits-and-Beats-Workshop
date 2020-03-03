@@ -13,7 +13,7 @@ Ein einfacher [Theremin](https://en.wikipedia.org/wiki/Theremin) programmiert mi
 | Menge | Name            | Beschreibung                       | Beschriftung/Farbcode |
 |-------|-----------------|------------------------------------|-----------------------|
 | 5     | Raspberry Pi 3             | kleine single-board Computer	mit Stromanschluss	               |                       |
-| 5     | Piezoememet  |  verändert sein Form jenach angelegter Spannung und kann einen Ton erzeugen |    KEPO                   |
+| 5     | kleine Lautsprecher  |  |    KEPO                   |
 | 5     | Steckplatine  |   zum Verbinden von Schaltkreisen                                 |                       |
 | 5     | Ultraschallsensor             |  zum Untraschlalwellen senden und messen          |                       |
 | 60     | Jumperkabel            |   zum verbinden der electrischen Komponenten, 5 mal out-out, 55 mal in-out                               |                       |
@@ -26,7 +26,7 @@ Ein einfacher [Theremin](https://en.wikipedia.org/wiki/Theremin) programmiert mi
 ### Steckplatine
 <img src="pics/steckplatine.jpg" width=300px alt="Steckplatine">
 
-### Piezo Element
+### Lautsprecher
 <img src="pics/piezo.jpg" width=300px alt="Piezo Element">
 
 ### Ultraschallsensor
