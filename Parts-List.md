@@ -1,3 +1,7 @@
+Ein einfacher [Theremin](https://en.wikipedia.org/wiki/Theremin) programmiert mit ein Raspberry Pi: 
+- Status: One Raspbarry Pi is missing, ask Leon
+- Difficulty: **2/5**
+
 ### Parts List für 10 Teilnehmemer*innen
 
 | Menge | Name            | Beschreibung                       | Beschriftung/Farbcode |
@@ -12,4 +16,4 @@
 | 5    | Bildschirm |  |     |
 | 5    | Tastatur |  |     |
 | 5    | Maus |  |     |
-### Manual
+
